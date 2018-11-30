@@ -15,12 +15,17 @@ class Word
     @@dictionary
   end
 
-  def self.add_to_lib(word_object)
-    if word_object.class == Word
-      @@dictionary.push(word_object)
-    else
-      false
+  def self.alphabetical
+    alpha_terms = []
+    @@dictionary.each do |word|
+      alpha_terms.push(word.term)
     end
+    alpha_terms.sort!
+    alpha_dictionary = []
+    alpha_terms.each do |term|
+      alpha_dictionary.push(self.find_word_by_term(term))
+    end
+    alpha_dictionary
   end
 
   def self.find_index_by_term(this_term)
@@ -41,6 +46,20 @@ class Word
 
   def self.find_index_by_word(word_to_match)
     i = self.find_index_by_term(word_to_match.term)
+  end
+
+  def self.add_to_lib(word_object)
+    if (word_object.class != Word)
+      false
+    else
+      @@dictionary.each do |word|
+        unique_term = word_object.term
+        if word.term == unique_term
+          return false
+        end
+      end
+      @@dictionary.push(word_object)
+    end
   end
 
   def self.delete_word(word)

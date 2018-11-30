@@ -1,7 +1,9 @@
 <h2>Dictionary</h2>
-
+<div class="options">
+  <a id="new_word" href="/create_new_words">Make New Word</a>
+  <button type="submit" name="alphabetical" action="/alphabetical" method="post">Alphabetical</button>
+  <button type="submit" name="chrono-trigger" action="/chronological" method="post">Chronological</button>
+</div>
 <% @dictionary.each do |word| %>
   <a href="/definitions/<%= word.term %>"><%= word.term %></a><br><br>
 <% end %>
-
-<a id="new_word" href="/create_new_word">Make New Word</a>

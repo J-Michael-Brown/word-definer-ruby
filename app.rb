@@ -9,11 +9,21 @@ get('/') do
   erb(:index)
 end
 
-get('/create_new_word') do
-  erb(:create_new_word)
+post('/alphabetical') do
+  @dictionary = Word.alphabetical
+  erb(:index)
 end
 
-post('/create_new_word') do
+post('/chronological') do
+  @dictionary = Word.all
+  erb(:index)
+end
+
+get('/create_new_words') do
+  erb(:create_new_words)
+end
+
+post('/create_new_words') do
   new_term = params.fetch('new-term')
   new_definition = params.fetch('first-definition')
   if new_definition == ""
@@ -23,7 +33,7 @@ post('/create_new_word') do
   end
 
   @dictionary = Word.add_to_lib(new_word)
-  erb(:index)
+  erb(:create_new_words)
 end
 
 get('/definitions/:term') do
