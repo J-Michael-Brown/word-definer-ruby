@@ -3,4 +3,8 @@
   <br><p><%= define %></p>
 <% end %>
 
-<form action="/definitions/<%= @word.term %>" method="post"></form>
+<form action="/definitions/<%= @word.term %>" method="post">
+  <label>New Definition</label>
+  <input type="text" name="new-definition" placeholder="<%= @word.term %>">
+  <button type="submit" name="new-definition"></button>
+</form>

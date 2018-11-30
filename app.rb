@@ -31,3 +31,10 @@ get('/definitions/:term') do
 
   erb(:definitions)
 end
+
+post('/definitions/:term') do
+
+
+  @word = Word.find_word_by_term(params[:term])
+  erb(:definitions)
+end
