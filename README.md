@@ -10,6 +10,8 @@ _A usher can view a list of their already created words, add new words, view the
 
 ## Setup/Installation Requirements
 
+_visit heroku site: https://whispering-ravine-99999.herokuapp.com/_
+
 * _Copy this Project to your Desktop_
 * _**$ ruby app.rb** (Run: "ruby app.rb" in your terminal)_
 
