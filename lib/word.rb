@@ -1,8 +1,9 @@
 class Word
 
-  @@all_words[]
+  @@library[]
 
-  attr_accessor(:term, :definitions)
+  attr_accessor(:definitions)
+  attr_reader(:term)
 
   def initialize(term, definitions_array = [], pronounciation = false)
     @term = term
@@ -11,15 +12,19 @@ class Word
   end
 
   def self.all
-    @@all_words
+    @@library
   end
 
-  def self.add_to_lib(term_object)
-    @@all_words.push(term_object)
+  def self.add_to_lib(word_object)
+    if word_object.class == Word
+      @@library.push(word_object)
+    else
+      false
+    end
   end
 
   def self.find_index_by_term(this_term)
-    @@all_words.each_with_index do |term, i|
+    @@library.each_with_index do |term, i|
       if term.term == this_term
         return i
       end
@@ -30,8 +35,14 @@ class Word
   def self.find_word_by_term(this_term)
     i = self.find_index_by_term(this_term)
     if i
-      @@all_words[i]
+      @@library[i]
     end
   end
+
+  def self.delete_word(word)
+    i = self.find_index_by_term(word.term)
+    @@library.slice!(i)
+  end
+
 
 end
