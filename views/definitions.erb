@@ -1,12 +1,17 @@
 <h1><%= @word.term %></h1>
-<% @word.definitions.each do |definition| %>
-  <br><p><%= definition %></p>
+<% if @word.definitions.length > 0 %>
+  <h3>Definitions:</h2>
+  <div class="sub-list">
+    <% @word.definitions.each do |definition| %>
+    <p><%= definition %></p><br>
+    <% end %>
+  </div>
 <% end %>
 
 <form action="/definitions/<%= @word.term %>" method="post">
   <label>New Definition</label>
   <input type="text" name="new-definition" placeholder="for <%= @word.term %>">
-  <button type="submit"></button>
+  <button type="submit">Add!</button>
 </form>
 
-<a href="/"></a>
+<a href="/">Home</a>
