@@ -1,6 +1,6 @@
 class Word
 
-  @@library[]
+  @@dictionary[]
 
   attr_accessor(:definitions)
   attr_reader(:term)
@@ -12,19 +12,19 @@ class Word
   end
 
   def self.all
-    @@library
+    @@dictionary
   end
 
   def self.add_to_lib(word_object)
     if word_object.class == Word
-      @@library.push(word_object)
+      @@dictionary.push(word_object)
     else
       false
     end
   end
 
   def self.find_index_by_term(this_term)
-    @@library.each_with_index do |term, i|
+    @@dictionary.each_with_index do |term, i|
       if term.term == this_term
         return i
       end
@@ -35,13 +35,13 @@ class Word
   def self.find_word_by_term(this_term)
     i = self.find_index_by_term(this_term)
     if i
-      @@library[i]
+      @@dictionary[i]
     end
   end
 
   def self.delete_word(word)
     i = self.find_index_by_term(word.term)
-    @@library.slice!(i)
+    @@dictionary.slice!(i)
   end
 
 

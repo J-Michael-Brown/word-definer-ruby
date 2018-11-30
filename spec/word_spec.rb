@@ -4,7 +4,7 @@ require ('pry')
 
 describe('.Word') do
   describe('#self.add_to_lib') do
-    it "adds a word the the @@library class object, and returns the new @@library class object array" do
+    it "adds a word the the @@dictionary class object, and returns the new @@dictionary class object array" do
       starting_length = Word.all.length
       new_word = Word.new("new")
       Word.add_to_lib(new_word)
@@ -14,7 +14,7 @@ describe('.Word') do
   end
 
   describe('#self.find_index_by_term') do
-    it "takes a 'term' string and attempts to match it to one of the sotred word object's Word.term. Returns index of Word object in @@library" do
+    it "takes a 'term' string and attempts to match it to one of the sotred word object's Word.term. Returns index of Word object in @@dictionary" do
       first_word = Word.new("first")
       Word.add_to_lib(first_word)
       second_word = Word.new("second")

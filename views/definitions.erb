@@ -1,0 +1,6 @@
+<h1><%= @word %></h1>
+<% @word.definitions.each do |define| %>
+  <br><p><%= define %></p>
+<% end %>
+
+<form action="/definitions/<%= @word.term %>" method="post"></form>
