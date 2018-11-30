@@ -39,10 +39,22 @@ class Word
     end
   end
 
+  def self.find_index_by_word(word_to_match)
+    i = self.find_index_by_term(word_to_match.term)
+  end
+
   def self.delete_word(word)
     i = self.find_index_by_term(word.term)
     @@dictionary.slice!(i)
   end
 
+  def self.add_define(word, new_meaning)
+    i = self.find_index_by_word(word)
+    if new_meaning != ""
+      @@dictionary[i].definitions.push(new_meaning)
+    else
+      @@dictionary[i]
+    end
+  end
 
 end

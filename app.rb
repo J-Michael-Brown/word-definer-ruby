@@ -16,7 +16,7 @@ end
 post('/create_new_word') do
   new_term = params.fetch('new-term')
   new_definition = params.fetch('first-definition')
-  if new_definition = ""
+  if new_definition == ""
     new_word = Word.new(new_term)
   else
     new_word = Word.new(new_term, [new_definition])
@@ -33,8 +33,9 @@ get('/definitions/:term') do
 end
 
 post('/definitions/:term') do
-
-
+  @word = Word.find_word_by_term(params[:term])
+  new_definition = params.fetch('new-definition')
+  Word.add_define(@word, new_definition)
   @word = Word.find_word_by_term(params[:term])
   erb(:definitions)
 end
