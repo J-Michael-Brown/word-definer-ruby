@@ -1,6 +1,6 @@
 class Word
 
-  @@dictionary[]
+  @@dictionary = []
 
   attr_accessor(:definitions)
   attr_reader(:term)
