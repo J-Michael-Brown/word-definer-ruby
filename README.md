@@ -1,23 +1,21 @@
-# _{Application Name}_
+# _Kids' Dictionary_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _Allows users to create and view their own dictionary, November 30, 2018_
 
 #### By _**J. Michael Brown**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_A usher can view a list of their already created words, add new words, view the definition(s) of those words, and add new definitions to words._
 
 ## Setup/Installation Requirements
 
 * _Copy this Project to your Desktop_
 * _**$ ruby app.rb** (Run: "ruby app.rb" in your terminal)_
 
-_{Extra/ alternative methods, anything they should know?}_
-
 ## Known Bugs
 
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
+_No known bugs yet._
 
 ## Support and contact details
 
