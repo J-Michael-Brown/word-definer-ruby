@@ -1,7 +1,5 @@
 class Word
 
-  @@dictionary = []
-
   attr_accessor(:definitions)
   attr_reader(:term)
 
@@ -10,6 +8,13 @@ class Word
     @definitions = definitions_array
     @pronounciation = pronounciation
   end
+
+  @@dictionary = [
+    # Word.new("elmo",["famouse childrens show character"]),
+    # Word.new("love"),
+    # Word.new("melo"),
+    # Word.new("ounce")
+  ]
 
   def self.all
     @@dictionary

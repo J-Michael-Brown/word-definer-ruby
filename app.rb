@@ -5,7 +5,7 @@ require('./lib/word.rb')
 require('pry')
 
 get('/') do
-  @dictionary = Word.all
+  @dictionary = Word.alphabetical
   erb(:index)
 end
 
@@ -42,10 +42,10 @@ end
 
 post('/:order') do
   order = params[:order]
-  if order == 'alphabetical'
-    @dictionary = Word.alphabetical
-  else order == 'chronological'
+  if order == 'chronological'
     @dictionary = Word.all
+  else order == 'alphabetical'
+    @dictionary = Word.alphabetical
   end
   erb(:index)
 end
