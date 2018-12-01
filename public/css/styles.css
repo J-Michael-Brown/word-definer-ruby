@@ -1,0 +1,15 @@
+.navbar {
+  width: 100%;
+  
+}
+
+.options {
+  float: left;
+  margin-left: 5px;
+}
+
+.listed-word {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}

@@ -1,15 +1,21 @@
 <h2>Dictionary</h2>
-<div class="options">
-  <a id="new_word" href="/create_new_words">Make New Word</a>
-  <form action="/alphabetical" method="post">
+<div class="navbar">
+  <a id="new_word" class="options" href="/create_new_words">Make New Word</a>
+  <form class="options" action="/alphabetical" method="post">
     <button type="submit" name="alphabetical" value="alpha">Alphabetical</button>
   </form>
 
-  <form action="/chronological" method="post">
+  <form class="options" action="/chronological" method="post">
     <button type="submit" name="chrono-trigger" value="chrono">Chronological</button>
   </form>
 
 </div>
-<% @dictionary.each do |word| %>
-  <a href="/definitions/<%= word.term %>"><%= word.term %></a><br><br>
-<% end %>
+<div id="word-list">
+  <% if @dictionary.length>0 %>
+    <dl>
+      <% @dictionary.each do |word| %>
+        <dt><a class="listed-word" href="/definitions/<%= word.term %>"><%= word.term %></a></dt>
+      <% end %>
+    </dl>
+  <% end %>
+</div>
