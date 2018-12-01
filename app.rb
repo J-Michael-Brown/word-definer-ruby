@@ -9,16 +9,6 @@ get('/') do
   erb(:index)
 end
 
-post('/alphabetical') do
-  @dictionary = Word.alphabetical
-  erb(:index)
-end
-
-post('/chronological') do
-  @dictionary = Word.all
-  erb(:index)
-end
-
 get('/create_new_words') do
   erb(:create_new_words)
 end
@@ -48,4 +38,14 @@ post('/definitions/:term') do
   Word.add_define(@word, new_definition)
   @word = Word.find_word_by_term(params[:term])
   erb(:definitions)
+end
+
+post('/:order') do
+  order = params[:order]
+  if order == 'alphabetical'
+    @dictionary = Word.alphabetical
+  else order == 'chronological'
+    @dictionary = Word.all
+  end
+  erb(:index)
 end
